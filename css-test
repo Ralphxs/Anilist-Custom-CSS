@@ -1,0 +1,698 @@
+:root {
+    --nav-symbol: "★";
+    --nav-height: calc(100vh - 46px);
+    --banner-url: url(https://i.imgur.com/lgpmB9q.png);
+    --avatar-url: url(https://i.imgur.com/zXF4f2c.png);
+    --nav-bg: var(--banner-url);
+    --favourite-highlight: #fecc15;
+    --layout-delay: 2s;
+    --font: "PT Sans", sans-serif;
+}
+
+:root,
+.site-theme-contrast,
+.site-theme-dark {
+    --color-nav-background: 21, 34, 50;
+    /* top navbar background */
+    --color-nav-text: 160, 177, 197;
+    /* top navbar text */
+    --color-background: 11, 11, 11;
+    /* background */
+    --color-foreground: 10, 10, 10;
+    /* foreground */
+    --color-foreground-grey: 15, 22, 31;
+    /* statswrap footer background */
+    --color-foreground-grey-dark: 6, 12, 19;
+    /* statswrap progress bar background, activity history empty field background */
+    --color-text: 255, 255, 255;
+    /* plain text, header, statswrap progressbar number indicators */
+    --color-text-light: 255, 255, 255;
+    /* genre and statswrap text, secondary navbar links */
+    --color-text-lighter: 255, 255, 255;
+    /* filter text, time stamp text and icons */
+    --color-shadow-blue: 0, 5, 15;
+    /* popup/dropdown menu shadow */
+    --color-background-300: 30, 42, 56;
+    /* statspage graph footer background */
+    --color-background-200: 11, 22, 34;
+    /* navdropdown footer background */
+    --color-background-100: 21, 31, 46;
+    /* navdropdown background */
+    --color-gray-900: 201, 215, 227;
+    /* navdropdown footer text and icon hover */
+    --color-gray-800: 173, 192, 210;
+    /* navdropdown primary text, text and icon hover */
+    --color-gray-700: 139, 160, 178;
+    /* navdropdown footer text and icons */
+    --color-gray-600: 116, 136, 153;
+    /* navdropdown secondary text and icons */
+    --color-gray-300: 30, 42, 56;
+    /* statspage curved graph fill color */
+    --color-gray-100: 21, 31, 46;
+    /* navdropdown little arrow thing */
+}
+
+/* ---------------------- Layout Specific ------------------------- */
+
+.banner-content .nav-btn.donator-badge {
+    background: unset !important;
+}
+
+/* ---------------------- Banner ------------------------- */
+
+.banner {
+    height: calc(100vh - 46px) !important;
+    background: var(--banner-url) !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    transition: height 0.8s ease-in-out;
+    /* background-image: none !important;
+    background-color: rgb(36, 37, 56, 0) !important; */
+}
+
+
+
+.shadow {
+    display: none;
+    background: linear-gradient(
+    180deg,
+    rgba(var(--color-shadow-dark), 0) 85%,
+    rgba(var(--color-shadow-dark), 0.35)
+    ) !important;
+}
+
+
+.banner .avatar {
+    max-width: 220px !important;
+    max-height: 220px !important;
+    content: var(--avatar-url);
+}
+
+
+.hohDownload {
+    display: none;
+}
+
+.reply .name {
+    height: fit-content;
+    line-height: 1.15;
+    margin-top: 5px;
+}
+
+.about .content-wrap .markdown::after {
+    content: unset !important;
+}
+
+.name-wrapper .name {
+    text-shadow: 1px 1px 2px black;
+}
+
+.content.container > div {
+    margin-top: 0 !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* --------------------------- Main Navigation --------------------------- */
+
+/* NAV v2 */
+/* Main nav */
+#nav.nav {
+    background: var(--nav-bg) !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    opacity: 0;
+    transition: max-height 0.5s ease 0s, top 0.5s ease, opacity 0.5s !important;
+    height: 100vh !important;
+    max-height: 40px;
+}
+
+#nav .wrap {
+    height: 100vh !important;
+    max-height: 0vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden;
+    transition: all 0.5s !important;
+    z-index: 1000 !important;
+    margin: 0 !important;
+    justify-content: center;
+    text-transform: lowercase;
+}
+
+#nav.hide {
+    top: 0px !important;
+}
+
+#nav .links {
+    flex-direction: column;
+    width: 200px !important;
+    text-transform: lowercase;
+}
+
+#nav .links .link {
+    padding: 9px 8px !important;
+    text-align: right !important;
+    width: fit-content !important;
+    align-self: end;
+}
+
+#nav .links .link:nth-child(n + 5),
+#nav .search,
+#nav .links .browse-wrap,
+#nav .logo {
+    display: none !important;
+}
+
+#nav .links .link:nth-child(1) {
+    padding-right: 9px !important;
+}
+
+#nav .links .link:nth-child(2) {
+    padding-right: 20px !important;
+}
+
+#nav .links .link:nth-child(3) {
+    padding-right: 20px !important;
+}
+
+#nav .links .link:nth-child(4) {
+    padding-right: 9px !important;
+}
+
+#nav:hover,
+#nav:has(.wrap:hover) {
+    opacity: 1;
+    max-height: var(--nav-height) !important;
+}
+
+body #nav:has(.quick-search.visible) {
+    opacity: 1;
+    max-height: 100vh !important;
+}
+
+#nav:not(:has(.quick-search.visible)):hover .wrap,
+#nav:not(:has(.quick-search.visible)) .wrap:hover,
+#nav:hover .quick-search {
+    max-height: var(--nav-height) !important;
+    background: rgba(11, 11, 11, 0.5) !important;
+    position: absolute !important;
+}
+
+#nav .quick-search {
+    background: rgba(11, 11, 11, 0.5);
+    max-height: 100vh !important;
+}
+
+#nav:hover .quick-search {
+    max-height: 100vh !important;
+}
+
+#nav .quick-search .input {
+    background: unset;
+}
+
+#nav .quick-search * {
+    text-transform: lowercase;
+}
+
+#nav .quick-search .results {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#nav .quick-search .results .result-col {
+    background: unset;
+}
+
+#nav .quick-search .results .result-col .result:hover,
+#nav .quick-search .results .result-col .result:hover a {
+    background: unset;
+    color: rgb(var(--color-blue)) !important;
+}
+
+#nav .quick-search .results .result-col .result:hover .info {
+    color: rgb(var(--color-blue-dim));
+}
+
+#nav .quick-search .input .hint {
+    display: none;
+}
+
+#nav .quick-search .open-list-editor {
+    display: none;
+}
+
+#nav .user {
+    width: 200px;
+    height: 200px;
+}
+
+#nav .user-wrap svg {
+    display: none;
+}
+
+#nav .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 9999px;
+    border: 4px solid rgb(30, 30, 30);
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+#nav .user {
+    width: 400px !important;
+    cursor: unset !important;
+}
+
+#nav .user-wrap {
+    display: flex !important;
+}
+
+#nav .user-wrap::after,
+#nav .user .dropdown::before {
+    display: none !important;
+}
+
+#nav .user .dropdown {
+    position: static !important;
+    background: unset !important;
+    box-shadow: unset !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1 !important;
+    animation: unset !important;
+}
+
+#nav .user .dropdown .footer {
+    background: unset !important;
+    display: flex !important;
+    flex-direction: column;
+}
+
+#nav
+.user
+.dropdown
+:is(
+.primary-link:nth-child(1),
+.secondary-link:nth-child(2),
+.secondary-link:nth-child(3)
+) {
+    display: none !important;
+}
+
+#nav .dropdown :is(.primary-links, .footer) {
+    padding: 0 !important;
+    margin: 0 !important;
+    grid-gap: unset !important;
+}
+
+#nav .dropdown :is(.primary-link, .secondary-link) {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 9px 8px !important;
+    width: fit-content !important;
+    color: #a0b1c5 !important;
+}
+
+#nav .dropdown :is(.primary-link, .secondary-link):hover {
+    color: #d3d5f3 !important;
+}
+
+#nav .dropdown .primary-link:nth-child(2) {
+    padding-left: 9px !important;
+}
+
+#nav .dropdown .primary-link:nth-child(3) {
+    padding-left: 20px !important;
+}
+
+#nav .dropdown .secondary-link:nth-child(1) {
+    padding-left: 20px !important;
+}
+
+#nav .dropdown .secondary-link:nth-child(4) {
+    padding-left: 9px !important;
+    cursor: pointer;
+}
+
+#nav .user .dropdown::before {
+    display: none;
+}
+
+#nav .notification-dot,
+#nav .void-notification-dot {
+    display: none !important;
+}
+
+.nav-wrap {
+    background: unset !important;
+    user-select: none;
+}
+
+.nav > .link {
+    position: relative;
+}
+
+.nav > .link::after {
+    content: var(--nav-symbol);
+    font-style: normal;
+    position: absolute;
+    right: -5px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav > .router-link-active::after,
+.nav > .link:hover::after {
+    opacity: 1;
+    right: 0px;
+}
+
+.nav > .router-link-active {
+    background: unset !important;
+}
+
+.nav-wrap a {
+    text-transform: lowercase;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* --------------------------- Favourites --------------------------- */
+
+a.favourite {
+    filter: grayscale(70%);
+}
+
+.favourites.preview a.favourite {
+    transition: all 0.3s ease-in-out;
+    background-size: 100% !important;
+    height: unset !important;
+}
+
+.favourites.preview a.favourite[href*="manga/92550"],
+.favourites.preview a.favourite[href*="staff/99956"] {
+    height: 115px !important;
+}
+
+.favourites.preview a.favourite:hover {
+    filter: grayscale(0%);
+    box-shadow: 0px 0px 20px 0px var(--favourite-highlight);
+    background-size: 105% !important;
+}
+
+.favourites.preview .favourites-wrap:not(.favourites.preview .favourites-wrap.studios) {
+    display: grid !important;
+    grid-gap: 12px;
+    grid-template-columns: repeat(4, 85px);
+    grid-auto-rows: minmax(115px, auto);
+    padding: 0 !important;
+    margin-bottom: 35px !important;
+    background: unset !important;
+    justify-content: center;
+}
+
+.favourites.preview .favourites-wrap.staff {
+    grid-template-columns: repeat(3, 61px) !important;
+    grid-auto-rows: unset !important;
+    grid-template-rows: 115px 70px 115px;
+}
+
+.favourites.preview .favourites-wrap a.favourite:not(.favourites.preview .favourites-wrap.studios a.favourite) {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    min-height: 60px;
+}
+
+.overview {
+    grid-template-columns: calc(35% - 40px) 65% !important;
+}
+
+body .container {
+    max-width: 1200px !important;
+}
+
+:is(.favourites, .desktop) .section-header {
+    padding-left: 0px !important;
+    text-align: center;
+    display: block !important;
+}
+
+.favourites.section-header .actions {
+    display: none !important;
+}
+
+.favourites.preview .favourites-wrap.staff a.favourite:nth-child(4):before,
+.favourites.preview .favourites-wrap.manga a.favourite:nth-child(3):before {
+    position: absolute;
+    top: -26px;
+    overflow: visible;
+    word-break: keep-all;
+    color: rgb(var(--color-text)) !important;
+    width: 100%;
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 700;
+    pointer-events: none;
+    text-align: center;
+}
+
+
+div.favourites:nth-child(7) > h2:nth-child(1) {
+    position: relative;
+    visibility: hidden;
+}
+
+div.favourites:nth-child(7) .section-header {
+    position: relative;
+}
+
+div.favourites:nth-child(7) > h2:nth-child(1)::before {
+    content: "Artists";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: visible;
+}
+
+.tooltip,
+.tooltip .title {
+    background: rgb(20, 20, 20) !important;
+}
+
+.tooltip::after {
+    border-top-color: rgb(20, 20, 20) !important;
+}
+
+.favourites-wrap {
+    overflow: visible !important;
+}
+
+.favourites.preview .section-header .actions {
+    display: none;
+}
+
+/* favourite hover layout change */
+
+.banner {
+    position: relative;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--banner-url);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background 0.8s var(--layout-delay) ease-in-out;
+}
+
+.banner .avatar {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 110px !important;
+    background: var(--avatar-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: background 0.8s var(--layout-delay) ease-in-out;
+}
+
+body:has(a.favourite:hover) .banner::before {
+    transition: background 0.8s 0s ease-in-out;
+}
+
+body:has(a.favourite:hover) .banner .avatar {
+    transition-delay: 0s;
+    transition-property: background;
+}
+
+
+
+
+/* --------------------------- Misc --------------------------- */
+
+.reply[collapsed=true] :is(.avatar, .likes, .time:first-child) {
+    display: none;
+}
+
+.void-reply-content {
+    display: flex;
+    gap: 20px;
+}
+
+.header .actions {
+    position: static;
+    display: flex;
+    margin-top: 6px;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2px;
+}
+
+.details,
+.stats-wrap,
+.nav,
+.action.has-label,
+.stats > .title,
+.filters,
+.section-header,
+.title > :not(.notes),
+.list-head>div,
+.score,
+.progress,
+.status,
+.format,
+.genres,
+.el-input__inner,
+.el-scrollbar,
+.heading.score,
+.switch,
+.favourites-wrap,
+.read-review,
+.content > .header,
+.follower-badge,
+.action.has-label.active,
+.nav-btn:not(.nav-btn.donator-badge),
+.el-tooltip__popper,
+.pie-chart.vertical-layout > .title,
+.options > .option,
+.tooltip .content,
+textarea::placeholder,
+.el-dropdown-menu.el-popper.el-dropdown-menu--small,
+.el-dropdown-menu.el-popper.activity-extras-dropdown.el-dropdown-menu--medium,
+.el-dialog__body .title,
+.el-dialog__body .save-btn,
+.el-dialog__body .input-title,
+*.el-picker-panel.el-date-picker.el-popper,
+.quick-search input[placeholder="Search AniList"],
+.result-col > .title,
+.embed,
+.primary-links,
+.footer,
+.void-button.void-self-message,
+.void-toast,
+#nav.nav .links,
+*.el-message-box,
+.el-button.el-button--default.el-button--small,
+.el-button.el-button--default.el-button--small.el-button--primary,
+.delete-btn,
+*.checkbox-wrap,
+.stats .title,
+.filter-group span,
+.load-more,
+.hohButton,
+.submissions,
+.actions:not(.banner-content .actions),
+.section-name,
+.donator-badge {
+    text-transform: lowercase !important;
+}
+
+*.overview,
+.stats-wrap,
+.nav,
+.lists,
+.filters,
+.user-follow,
+.user-reviews,
+.filter-group,
+.el-input__inner,
+.el-textarea__inner,
+.el-scrollbar,
+.el-tooltip__popper,
+.tooltip .content,
+.user-follow > .name,
+.section-header,
+.banner-content,
+.option,
+.content > .user-social,
+.content .submissions,
+.el-dropdown-menu.el-popper.el-dropdown-menu--small,
+.el-dropdown-menu.el-popper.activity-extras-dropdown.el-dropdown-menu--medium,
+.container > .activity-entry .wrap,
+.container > .activity-entry .reply,
+.el-dialog__body .title,
+.el-dialog__body .save-btn,
+.el-dialog__body .input-title,
+*.el-picker-panel.el-date-picker.el-popper,
+*.quick-search.visible,
+.primary-links,
+.footer,
+#nav.nav .links,
+*.el-message-box,
+.el-button.el-button--default.el-button--small,
+.el-button.el-button--default.el-button--small.el-button--primary,
+.delete-btn,
+*.checkbox-wrap,
+.hohButton,
+.activity-feed .time,
+* {
+    font-family: var(--font) !important;
+}
+
+.section-header {
+    font-weight: 700;
+}
+
+.el-dropdown-menu:not(.section-header .el-popper),
+.el-select-dropdown {
+    background: rgb(var(--color-foreground-grey-dark)) !important;
+}
+
+.popper__arrow,
+.popper__arrow::after {
+    border-bottom-color: rgb(var(--color-foreground-grey-dark)) !important;
+    border-top-color: rgb(var(--color-foreground-grey-dark)) !important;
+}
+
+.hohScore {
+    padding: 2px 5px 1px 5px !important;
+}
+
+.overview
+> .section
+> .about
+> .content-wrap
+> .markdown p:has(a[href="https://greasyfork.org/en/scripts/475531-voidverified"]) {
+    display: none;
+}
+
+.ps-container,
+.switch,
+.list-section,
+.circle {
+    box-shadow: unset !important;
+}
