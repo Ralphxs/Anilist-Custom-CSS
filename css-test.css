@@ -1,7 +1,7 @@
 :root {
     --nav-symbol: "★";
     --nav-height: calc(100vh - 46px);
-    --banner-url: url(https://i.imgur.com/lgpmB9q.png);
+    --banner-url: url(https://i.imgur.com/lgpmB9q.png); 
     --avatar-url: url(https://i.imgur.com/zXF4f2c.png);
     --nav-bg: var(--banner-url);
     --favourite-highlight: #fecc15;
