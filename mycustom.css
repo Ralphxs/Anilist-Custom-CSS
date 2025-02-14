@@ -1,10 +1,107 @@
 :root {
     --nav-symbol: "★";
     --nav-height: calc(100vh - 46px);
-    --banner-url: url(https://i.imgur.com/lgpmB9q.png); 
-    --avatar-url: url(https://i.imgur.com/zXF4f2c.png);
+    --banner-url: url(https://i.postimg.cc/tgQRSTgx/hutao-wp.jpg); 
+   /* --avatar-url: url(https://i.imgur.com/zXF4f2c.png);*/
     --nav-bg: var(--banner-url);
     --favourite-highlight: #fecc15;
-    --layout-delay: 2s;
     --font: "PT Sans", sans-serif;
+}
+:root,
+.site-theme-contrast,
+.site-theme-dark {
+    --color-nav-background: 21, 34, 50;
+    /* top navbar background */
+    --color-nav-text: 160, 177, 197;
+    /* top navbar text */
+    --color-background: 11, 11, 11;
+    /* background */
+    --color-foreground: 10, 10, 10;
+    /* foreground */
+    --color-foreground-grey: 15, 22, 31;
+    /* statswrap footer background */
+    --color-foreground-grey-dark: 6, 12, 19;
+    /* statswrap progress bar background, activity history empty field background */
+    --color-text: 255, 255, 255;
+    /* plain text, header, statswrap progressbar number indicators */
+    --color-text-light: 255, 255, 255;
+    /* genre and statswrap text, secondary navbar links */
+    --color-text-lighter: 255, 255, 255;
+    /* filter text, time stamp text and icons */
+    --color-shadow-blue: 0, 5, 15;
+    /* popup/dropdown menu shadow */
+    --color-background-300: 30, 42, 56;
+    /* statspage graph footer background */
+    --color-background-200: 11, 22, 34;
+    /* navdropdown footer background */
+    --color-background-100: 21, 31, 46;
+    /* navdropdown background */
+    --color-gray-900: 201, 215, 227;
+    /* navdropdown footer text and icon hover */
+    --color-gray-800: 173, 192, 210;
+    /* navdropdown primary text, text and icon hover */
+    --color-gray-700: 139, 160, 178;
+    /* navdropdown footer text and icons */
+    --color-gray-600: 116, 136, 153;
+    /* navdropdown secondary text and icons */
+    --color-gray-300: 30, 42, 56;
+    /* statspage curved graph fill color */
+    --color-gray-100: 21, 31, 46;
+    /* navdropdown little arrow thing */
+}
+/* ---------------------- Banner ------------------------- */
+
+.banner {
+    height: calc(100vh - 46px) !important;
+    background: var(--banner-url) !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    transition: height 0.8s ease-in-out;
+    /* background-image: none !important;
+    background-color: rgb(36, 37, 56, 0) !important; */
+}
+
+
+
+.shadow {
+    display: none;
+    background: linear-gradient(
+    180deg,
+    rgba(var(--color-shadow-dark), 0) 85%,
+    rgba(var(--color-shadow-dark), 0.35)
+    ) !important;
+}
+
+
+.banner .avatar {
+    max-width: 220px !important;
+    max-height: 220px !important;
+    content: var(--avatar-url);
+}
+
+
+.hohDownload {
+    display: none;
+}
+
+.reply .name {
+    height: fit-content;
+    line-height: 1.15;
+    margin-top: 5px;
+}
+
+.about .content-wrap .markdown::after {
+    content: unset !important;
+}
+
+.name-wrapper .name {
+    text-shadow: 1px 1px 2px black;
+}
+
+.content.container > div {
+    margin-top: 0 !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
