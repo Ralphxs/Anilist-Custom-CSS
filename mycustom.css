@@ -52,7 +52,7 @@
 /* ---------------------- Banner ------------------------- */
 
 .banner {
-    height: calc(100vh - 46px) !important;
+    height: calc(60vh) !important;
     background: var(--banner-url) !important;
     background-position: 50% 50% !important;
     background-repeat: no-repeat !important;
